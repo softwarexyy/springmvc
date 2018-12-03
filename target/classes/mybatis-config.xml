@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!-- 配置了Spring的applicationContext.xml之后，这个文件已废弃，事实上没啥用了，除非不用Spring加载Mybatis -->
+<!-- XML配置文件包含对MyBatis系统的核心设置 -->
+<configuration>	
+<!--  指定MyBatis所用日志的具体实现  -->
+ 	<settings>
+		<setting name="logImpl" value="LOG4J" /> 
+	</settings> 
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC">
+			</transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8" />
+				<property name="username" value="root" />
+				<property name="password" value="xieyunyu" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mapper/UserMapper.xml" />
+	</mappers>
+</configuration>

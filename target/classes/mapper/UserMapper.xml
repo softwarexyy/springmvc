@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yancy.mapper.UserMapper"> <!-- 对应UserMapper接口中对应的方法 -->
+	<insert id="insertUser" parameterType="com.yancy.model.User" useGeneratedKeys="true" keyProperty="id" >
+		insert into userinfo(userid,username,password) values(#{userid},#{username},#{password})
+	</insert>
+	
+	<select id="selectAllUser" resultType="com.yancy.model.User">
+		select * from userinfo
+	</select>
+	
+	<delete id="deleteUser">
+		delete from userinfo
+	</delete>
+
+	<select id="selectOneUser" parameterType="int" resultType="com.yancy.model.User">
+		select * from userinfo where id=#{id}
+	</select>
+	
+	<select id="selectOneUserByName" parameterType="String" resultType="com.yancy.model.User">
+		select * from userinfo where username=#{username}
+	</select>
+</mapper>
