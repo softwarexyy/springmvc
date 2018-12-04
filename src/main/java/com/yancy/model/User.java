@@ -1,9 +1,7 @@
-/**
- * 
- */
 package com.yancy.model;
 
 /**
+ * ΚµΜεΐΰ
  * @author Yancy
  *
  */
