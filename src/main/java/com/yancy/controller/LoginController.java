@@ -40,7 +40,7 @@ public class LoginController {
 	@RequestMapping(value = "/welcome")
 	public String hello() {
 		System.out.println(" --- 有游客登陆 --- ");
-		return "welcome"; // 其实是把springmvc.xml配置文件中的前后缀连在一起 即"/hello.html"
+		return "register"; // 其实是把springmvc.xml配置文件中的前后缀连在一起 即"/hello.html"
 	}
 
 	/**
