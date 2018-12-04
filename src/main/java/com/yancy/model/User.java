@@ -7,14 +7,14 @@ package com.yancy.model;
  */
 public class User {
 
-	private int userid;
+	private String userid;
 	private String username;
 	private String password;
 	
-	public int getUserid() {
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(int userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 	public String getUsername() {

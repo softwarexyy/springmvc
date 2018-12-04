@@ -37,18 +37,11 @@ public class LoginController {
 	@Resource
 	private UserService userservice;
 
-	@RequestMapping(value = "/welcome")
-	public String hello() {
-		System.out.println(" --- 有游客登陆 --- ");
-		return "register"; // 其实是把springmvc.xml配置文件中的前后缀连在一起 即"/hello.html"
-	}
-	
 	@RequestMapping(value = "/welcome1")
 	public String hello1() {
 		System.out.println(" --- 有游客登陆 --- ");
 		return "register"; // 其实是把springmvc.xml配置文件中的前后缀连在一起 即"/hello.html"
 	}
-
 
 	/**
 	 * 用户登录
@@ -121,11 +114,9 @@ public class LoginController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(User model, HttpServletRequest request, HttpSession httpSession) {
 		System.out.println("--------------- 调用用户注册功能 -------------");
-		int userid = model.getUserid();
 		String username = model.getUsername();
 		String password = model.getPassword();
-		userservice.register(userid, username, password); // 调用service层注册方法
-
-		return "registerSuccess"; // 跳转到注册成功的registerSuccess.html页面
+		boolean registerSuccess = userservice.register(username, password); // 调用service层注册方法
+		return (registerSuccess == true) ? "registerSuccess" : "registerFail";
 	}
 }

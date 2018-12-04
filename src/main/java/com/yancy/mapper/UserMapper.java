@@ -13,7 +13,7 @@ import com.yancy.model.User;
  */
 public interface UserMapper {
 
-	public User selectOneUser(int id); // 读取一条用户
+	public User selectOneUser(String id); // 读取一条用户
 	
 	public User selectOneUserByName(String username);	// 根据用户名查询用户
 

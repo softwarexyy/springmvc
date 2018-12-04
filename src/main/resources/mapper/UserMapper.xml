@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from userinfo
 	</delete>
 
-	<select id="selectOneUser" parameterType="int" resultType="com.yancy.model.User">
+	<select id="selectOneUser" parameterType="String" resultType="com.yancy.model.User">
 		select * from userinfo where id=#{id}
 	</select>
 	

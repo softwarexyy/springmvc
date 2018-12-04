@@ -5,6 +5,7 @@ package com.yancy.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.UUID;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -39,7 +40,8 @@ public class TestMain {
 		// 创建User对象
 		UserMapper userMapper = session.getMapper(UserMapper.class);
 		User user = new User();
-		user.setUserid(7);
+		String userid = UUID.randomUUID().toString().replaceAll("-",""); 
+		user.setUserid(userid);
 		user.setUsername("解耘宇");
 		user.setPassword("123");
 

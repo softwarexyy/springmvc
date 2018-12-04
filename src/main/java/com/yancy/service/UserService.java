@@ -29,5 +29,5 @@ public interface UserService {
 	 * @param username
 	 * @param password
 	 */
-	public void register(int userid, String username, String password);
+	public boolean register(String username, String password);
 }

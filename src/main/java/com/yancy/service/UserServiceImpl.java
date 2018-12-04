@@ -1,5 +1,7 @@
 package com.yancy.service;
 
+import java.util.UUID;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -39,12 +41,20 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 用户注册
 	 */
-	public void register(int userid, String username, String password) {
+	public boolean register(String username, String password) {
 		System.out.println(" ==== 新增一条用户  ==== ");
+		User userSelect = getUserByName(username);
+		if (userSelect != null) {
+			System.out.println(" --- 注册的用户已存在 --- ");
+			return false;
+		}
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
+		String userid = UUID.randomUUID().toString().replaceAll("-",""); // 利用uuid生成不重复id
 		user.setUserid(userid);
 		mapper.insertUser(user);
+		
+		return true;
 	}
 }
