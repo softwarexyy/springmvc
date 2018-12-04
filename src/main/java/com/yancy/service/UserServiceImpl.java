@@ -35,4 +35,16 @@ public class UserServiceImpl implements UserService {
 		else
 			return true;
 	}
+	
+	/**
+	 * 用户注册
+	 */
+	public void register(int userid, String username, String password) {
+		System.out.println(" ==== 新增一条用户  ==== ");
+		User user = new User();
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setUserid(userid);
+		mapper.insertUser(user);
+	}
 }

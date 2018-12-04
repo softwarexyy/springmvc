@@ -3,24 +3,31 @@ package com.yancy.service;
 import com.yancy.model.User;
 
 /**
- * serviceæ¥å£
+ * service½Ó¿Ú
  * @author Yancy
  *
  */
 public interface UserService {
 
 	/**
-	 * æ ¹æ®ç”¨æˆ·åè·å–ç”¨æˆ·ä¿¡æ¯
+	 * ¸ù¾İÓÃ»§Ãû»ñÈ¡ÓÃ»§ĞÅÏ¢
 	 * @param name
 	 * @return
 	 */
 	public User getUserByName(String name);
 	
 	/**
-	 * ç”¨æˆ·ç™»å½•éªŒè¯
+	 * µÇÂ¼ÑéÖ¤
 	 * @param username
 	 * @param password
-	 * @return éªŒè¯é€šè¿‡è¿”å›true
+	 * @return 
 	 */
 	public boolean login(String username, String password);
+	
+	/**
+	 * ×¢²áÓÃ»§
+	 * @param username
+	 * @param password
+	 */
+	public void register(int userid, String username, String password);
 }
