@@ -84,13 +84,13 @@ public class LoginController {
 		/*********************************
 		 * 进行数据库查询操作 ** 方法二 ：Spring + mybatis, 自己手动创建UserService对象,调用Service层方法
 		 *******************************/
-//		UserService userv;
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-//		userv = ctx.getBean(UserService.class);
-//		boolean loginSuccess = userv.login(usernameForm, passwordForm);
-//		System.out.println(" === 该用户是否验证通过 ： " + loginSuccess);
-//		return (loginSuccess == true) ? "homePage" : "redirect:/ycylogin.html";
-		
+		// UserService userv;
+		// ApplicationContext ctx = new
+		// ClassPathXmlApplicationContext("applicationContext.xml");
+		// userv = ctx.getBean(UserService.class);
+		// boolean loginSuccess = userv.login(usernameForm, passwordForm);
+		// System.out.println(" === 该用户是否验证通过 ： " + loginSuccess);
+		// return (loginSuccess == true) ? "homePage" : "redirect:/ycylogin.html";
 
 		/*********************************
 		 * 进行数据库查询操作 ** 方法三 ：Spring + mybatis, 不过由注解"@Resource"自动生成UserService对象
@@ -99,5 +99,25 @@ public class LoginController {
 		System.out.println(" === 该用户是否验证通过 ： " + loginSuccess);
 		return (loginSuccess == true) ? "homePage2" : "redirect:/index.html";
 
+	}
+
+	/**
+	 * 从前端接收请求，实现用户注册功能
+	 * 
+	 * @param model
+	 *            前端传递模型
+	 * @param request
+	 *            前端传递请求
+	 * @param httpSession
+	 * @return
+	 */
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String register(User model, HttpServletRequest request, HttpSession httpSession) {
+		int userid = model.getUserid();
+		String username = model.getUsername();
+		String password = model.getPassword();
+		userservice.register(userid, username, password); // 调用service层注册方法
+
+		return "registerSuccess"; // 跳转到注册成功的registerSuccess.html页面
 	}
 }
