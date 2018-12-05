@@ -150,17 +150,5 @@ public class LoginController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		// try {
-		// if (loginSuccess == false) {
-		// response.getWriter().write("fail");
-		// } else {
-		// String url = "http://localhost:8080/springmvc/homePage2.html";
-		// response.sendRedirect(url);
-		// }
-		// } catch (IOException e) {
-		// System.out.println("response Ð´ÈëÊý¾ÝÊ§°Ü");
-		// e.printStackTrace();
-		// }
 	}
 }
