@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>登录</title>
-</head>
-<body>
-<form action="app/login.do" method="post">
-<label>账号：</label>
-<input type="text" id="txtUsername" name="username" placeholder="请输入账号" /><br/>
-<label>密码：</label>
-<input type="password" id="txtPassword" name="password" placeholder="请输入密码" /><br/>
-<input type="submit" value="提交" />
 
-<input type="reset" value="重置">
-</form>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<script src="js/login.js"></script>
+	</head>
 
-<a href="app/welcome1.do"> 无账号，游客？</a>
-</body>
+	<body>
+		<form id="loginForm" action="app/login.do" method="post">
+			<label>账号：</label>
+			<input type="text" id="txtUsername" name="username" placeholder="请输入账号" /><br/>
+			<label>密码：</label>
+			<input type="password" id="txtPassword" name="password" placeholder="请输入密码" /><br/>
+			<input type="submit" value="提交" />
+			<input type="reset" value="重置">
+		</form>
+		<!--
+        	作者：offline
+        	时间：2018-12-05
+        	描述：接收ajax数据
+        -->
+		<div id="myDiv"></div>
+		<button id="button" onclick="submitForm()">click</button>
+
+		<a href="app/welcome1.do"> 无账号，游客？</a>
+	</body>
+
 </html>

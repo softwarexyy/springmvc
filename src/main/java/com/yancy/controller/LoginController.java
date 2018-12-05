@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.io.Resources;
@@ -52,7 +53,7 @@ public class LoginController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(User model, HttpServletRequest request, HttpSession httpSession) {
+	public String login(User model, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
 		System.out.println(" --- 有会员进行登录操作... --- ");
 
 		// 两种获取页面表单数据的方式：
@@ -97,6 +98,7 @@ public class LoginController {
 		 *******************************/
 		boolean loginSuccess = userservice.login(usernameForm, passwordForm);
 		System.out.println(" === 该用户是否验证通过 ： " + loginSuccess);
+		System.out.println(" === response:" + response);
 		return (loginSuccess == true) ? "homePage2" : "redirect:/index.html";
 
 	}
