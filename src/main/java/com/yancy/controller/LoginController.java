@@ -5,6 +5,7 @@ package com.yancy.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -98,7 +99,6 @@ public class LoginController {
 		 *******************************/
 		boolean loginSuccess = userservice.login(usernameForm, passwordForm);
 		System.out.println(" === 该用户是否验证通过 ： " + loginSuccess);
-		System.out.println(" === response:" + response);
 		return (loginSuccess == true) ? "homePage2" : "redirect:/index.html";
 
 	}
@@ -120,5 +120,47 @@ public class LoginController {
 		String password = model.getPassword();
 		boolean registerSuccess = userservice.register(username, password); // 调用service层注册方法
 		return (registerSuccess == true) ? "registerSuccess" : "registerFail";
+	}
+
+	/**
+	 * 从前端接收请求，实现ajax登录
+	 * 
+	 * @param model
+	 *            前端传递模型
+	 * @param request
+	 *            前端传递请求
+	 * @param httpSession
+	 * @return
+	 */
+	@RequestMapping(value = "/ajaxlogin", method = RequestMethod.POST)
+	public void processAjax(HttpServletRequest request, HttpServletResponse response) {
+		// 从前端的ajax读取传入的json数据
+		System.out.println(" --- ajax前端传入的用户名：---" + request.getParameter("username"));
+		System.out.println(" --- ajax前端传入的密码：---" + request.getParameter("password"));
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		boolean loginSuccess = userservice.login(username, password); // 判断是否能登录成功
+		System.out.println("===== loginSuccess ====" + loginSuccess);
+
+		response.setContentType("application/json");
+		try {
+			// 返回json数据
+			response.getWriter().println("{\"userName\":\"user" + username + "\",\"age\":null}");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// try {
+		// if (loginSuccess == false) {
+		// response.getWriter().write("fail");
+		// } else {
+		// String url = "http://localhost:8080/springmvc/homePage2.html";
+		// response.sendRedirect(url);
+		// }
+		// } catch (IOException e) {
+		// System.out.println("response 写入数据失败");
+		// e.printStackTrace();
+		// }
 	}
 }

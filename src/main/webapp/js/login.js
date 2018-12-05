@@ -52,6 +52,28 @@ function loadXMLPost() {
 /**
  * ajax提交表单
  */
-function submitForm(){
-	document.getElementById("loginForm").submit();
+function sumitFormAjax() {	//使用ajax提交form表单
+	$('#loginForm').submit(function() {
+		var AjaxURL = "app/ajaxlogin.do";
+		//alert($('#loginForm').serialize());
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: AjaxURL,
+			data:
+				{
+					username: $("#username").val(),
+					password: $("#password").val()
+				},
+			//async: false,
+			success: function(data) {
+				var rslt = data;
+				alert(rslt);
+				//加载数据
+			},
+			error: function(data) {
+				alert("error:" + data.responseText);
+			}
+		});
+	});
 }
