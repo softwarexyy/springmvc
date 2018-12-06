@@ -155,8 +155,6 @@ public class LoginController {
 	/**
 	 * 从前端接收请求，实现ajax登录
 	 * 
-	 * @param model
-	 *            前端传递模型
 	 * @param request
 	 *            前端传递请求
 	 * @param httpSession
