@@ -7,13 +7,13 @@
 	</head>
 
 	<body>
-	<form id="loginForm">
+	<form id="loginForm" action="app/loginToHomepage.do" method="post">
 		<label>ÓÃ»§Ãû:</label>
-		<input type="text" id="username" />
+		<input type="text" id="username" name="username" />
 		<label>ÃÜÂë£º</label>
-		<input type="password" id="password"  />
+		<input type="password" id="password" name="password" />
 		
-		<button id="btn" onclick="sumitFormAjax()">sign in</button>
+		<!-- <button id="btn" onclick="sumitFormAjax()">sign in</button> -->
 	</form>
 		<button id="btn2" onclick="loginCheck()">µÇÂ¼</button>
 	</body>

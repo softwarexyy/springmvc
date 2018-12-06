@@ -50,35 +50,6 @@ function loadXMLPost() {
 }
 
 /**
- * ajax提交表单
- */
-function sumitFormAjax() {	//使用ajax提交form表单
-	$('#loginForm').submit(function() {
-		var AjaxURL = "app/ajaxlogin.do";
-		//alert($('#loginForm').serialize());
-		$.ajax({
-			type: "POST",
-			dataType: "json",
-			url: AjaxURL,
-			data:
-				{
-					username: $("#username").val(),
-					password: $("#password").val()
-				},
-			//async: false, //标识是同步还是异步
-			success: function(data) {
-				var rslt = data;
-				alert(rslt);
-				//加载数据
-			},
-			error: function(data) {
-				alert("error:" + data.responseText);
-			}
-		});
-	});
-}
-
-/**
  * 验证登录是否成功
  * 如果登录成功，跳转到homePage2
  * 如果登录失败，则在页面显示错误
@@ -95,8 +66,8 @@ function loginCheck() {
 		async: true,
 		success: function(data) {
 			if(data.result == "success") {
-				alert("Log in Success");
-				$(location).attr("href", "homePage2.html");	//重定向到登录主页
+				//$(location).attr("href", "app/loginToHomepage.do");	//重定向到登录主页,只能用get，此方法不行
+				$("#loginForm").submit();	//此处提交表单，到成功主页
 			} else {
 				alert("Log in Fail");
 			}

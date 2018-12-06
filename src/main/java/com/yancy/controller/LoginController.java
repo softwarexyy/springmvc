@@ -123,37 +123,7 @@ public class LoginController {
 	}
 
 	/**
-	 * 从前端接收请求，实现ajax登录
-	 * 
-	 * @param model
-	 *            前端传递模型
-	 * @param request
-	 *            前端传递请求
-	 * @param httpSession
-	 * @return
-	 */
-	@RequestMapping(value = "/ajaxlogin", method = RequestMethod.POST)
-	public void processAjax(HttpServletRequest request, HttpServletResponse response) {
-		// 从前端的ajax读取传入的json数据
-		System.out.println(" --- ajax前端传入的用户名：---" + request.getParameter("username"));
-		System.out.println(" --- ajax前端传入的密码：---" + request.getParameter("password"));
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		boolean loginSuccess = userservice.login(username, password); // 判断是否能登录成功
-		System.out.println("===== loginSuccess ====" + loginSuccess);
-
-		response.setContentType("application/json");
-		try {
-			// 返回json数据
-			response.getWriter().println("{\"userName\":\"user" + username + "\",\"age\":null}");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 从前端接收请求，实现ajax登录
+	 * 从前端接收请求，实现ajax登录验证
 	 * 
 	 * @param request
 	 *            前端传递请求
@@ -183,4 +153,30 @@ public class LoginController {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 已验证过密码，单纯实现携带登录名跳转，实现ajax登录
+	 * 
+	 * @param model
+	 *            前端传递模型
+	 * @param request
+	 *            前端传递请求
+	 * @param httpSession
+	 * @return
+	 */
+	@RequestMapping(value = "/loginToHomepage", method = RequestMethod.POST)
+	public String processAjax(HttpServletRequest request, HttpServletResponse response) {
+		// 从前端的ajax读取传入的json数据
+		System.out.println(" --- 登录成功传入的用户名：---" + request.getParameter("username"));
+		System.out.println(" --- 登录成功传入的密码：---" + request.getParameter("password"));
+		
+		try {
+			response.getWriter().println("{\"result\":\"success\"}");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "homePage2";
+	}
+	
 }
