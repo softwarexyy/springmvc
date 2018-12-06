@@ -65,7 +65,7 @@ function sumitFormAjax() {	//使用ajax提交form表单
 					username: $("#username").val(),
 					password: $("#password").val()
 				},
-			//async: false,
+			//async: false, //标识是同步还是异步
 			success: function(data) {
 				var rslt = data;
 				alert(rslt);
@@ -75,5 +75,34 @@ function sumitFormAjax() {	//使用ajax提交form表单
 				alert("error:" + data.responseText);
 			}
 		});
+	});
+}
+
+/**
+ * 验证登录是否成功
+ * 如果登录成功，跳转到homePage2
+ * 如果登录失败，则在页面显示错误
+ */
+function loginCheck() {
+	$.ajax({
+		type: "post",
+		url: "app/loginCheck.do",
+		dataType: "json",
+		data: {
+			username: $("#username").val(),
+			password: $("#password").val()
+		},
+		async: true,
+		success: function(data) {
+			if(data.result == "success") {
+				alert("Log in Success");
+				$(location).attr("href", "homePage2.html");	//重定向到登录主页
+			} else {
+				alert("Log in Fail");
+			}
+		},
+		error: function(data) {
+			alert("error" + data.responseText);
+		}
 	});
 }

@@ -151,4 +151,38 @@ public class LoginController {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 从前端接收请求，实现ajax登录
+	 * 
+	 * @param model
+	 *            前端传递模型
+	 * @param request
+	 *            前端传递请求
+	 * @param httpSession
+	 * @return
+	 */
+	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+	public void loginCheck(HttpServletRequest request, HttpServletResponse response) {
+		// 从前端的ajax读取传入的json数据
+		System.out.println(" --- ajax前端传入的用户名：---" + request.getParameter("username"));
+		System.out.println(" --- ajax前端传入的密码：---" + request.getParameter("password"));
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		boolean loginSuccess = userservice.login(username, password); // 判断是否能登录成功
+		System.out.println("===== loginSuccess? ====" + loginSuccess);
+
+		// 返回json数据
+		response.setContentType("application/json");
+		try {
+			if (loginSuccess == true) {
+				response.getWriter().println("{\"result\":\"success\"}");
+			}else {
+				response.getWriter().println("{\"result\":\"fail\"}");
+			}
+		} catch (IOException e) {
+			System.out.println(" ===== 返回数据response设置失败 ==== ");
+			e.printStackTrace();
+		}
+	}
 }
