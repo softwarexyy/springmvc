@@ -178,7 +178,7 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		
-		return "homePage2";
+		return "homepage";
 	}
 	
 }
