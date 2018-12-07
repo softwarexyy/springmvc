@@ -1,7 +1,7 @@
 package com.yancy.model;
 
 /**
- * ΚµΜεΐΰ
+ * ε®δ½“η±»
  * @author Yancy
  *
  */

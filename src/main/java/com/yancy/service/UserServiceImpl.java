@@ -12,23 +12,21 @@ import com.yancy.model.*;
 public class UserServiceImpl implements UserService {
 
 	@Resource
-	private UserMapper mapper;	//³õÊ¼»¯Êı¾İ¿â²Ù×÷¶ÔÏó
+	private UserMapper mapper;	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	/**
-	 * ¸ù¾İÓÃ»§Ãû»ñÈ¡ÓÃ»§ĞÅÏ¢
+	 * æ ¹æ®ç”¨æˆ·åæŸ¥è¯¢ç”¨æˆ·
 	 */
 	public User getUserByName(String name) {
 		return mapper.selectOneUserByName(name);
 	}
 
 	/**
-	 * ÓÃ»§µÇÂ¼£¬´«ÈëÇ°¶ËÊäÈëµÄusernameºÍpassword£¬ÑéÖ¤¶şÕßÊÇ·ñ·ûºÏ
+	 * æ ¹æ®usernameå’Œpasswordåšç™»å½•åˆ¤æ–­
 	 * 
 	 * @param username
-	 *            ÓÃ»§Ãû
 	 * @param password
-	 *            ÃÜÂë
-	 * @return ·ûºÏ·µ»Øtrue
+	 * @return true/false
 	 */
 	public boolean login(String username, String password) {
 		User user = mapper.selectOneUserByName(username);
@@ -39,19 +37,18 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	/**
-	 * ÓÃ»§×¢²á
+	 * ç”¨æˆ·æ³¨å†Œ
 	 */
 	public boolean register(String username, String password) {
-		System.out.println(" ==== ĞÂÔöÒ»ÌõÓÃ»§  ==== ");
 		User userSelect = getUserByName(username);
 		if (userSelect != null) {
-			System.out.println(" --- ×¢²áµÄÓÃ»§ÒÑ´æÔÚ --- ");
+			System.out.println(" --- ç”¨æˆ·å·²å­˜åœ¨ --- ");
 			return false;
 		}
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
-		String userid = UUID.randomUUID().toString().replaceAll("-",""); // ÀûÓÃuuidÉú³É²»ÖØ¸´id
+		String userid = UUID.randomUUID().toString().replaceAll("-",""); // æ ¹æ®uuidç”Ÿæˆå”¯ä¸€çš„userid
 		user.setUserid(userid);
 		mapper.insertUser(user);
 		

@@ -1,5 +1,5 @@
 /**
- * ¿ØÖÆÆ÷Àà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 package com.yancy.controller;
 
@@ -41,12 +41,12 @@ public class LoginController {
 
 	@RequestMapping(value = "/welcome1")
 	public String hello1() {
-		System.out.println(" --- ÓĞÓÎ¿ÍµÇÂ½ --- ");
-		return "register"; // ÆäÊµÊÇ°Ñspringmvc.xmlÅäÖÃÎÄ¼şÖĞµÄÇ°ºó×ºÁ¬ÔÚÒ»Æğ ¼´"/hello.html"
+		System.out.println(" --- ï¿½ï¿½ï¿½Î¿Íµï¿½Â½ --- ");
+		return "register"; // ï¿½ï¿½Êµï¿½Ç°ï¿½springmvc.xmlï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ğµï¿½Ç°ï¿½ï¿½×ºï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½"/hello.html"
 	}
 
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	 * 
 	 * @param model
 	 * @param request
@@ -55,126 +55,118 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(User model, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
-		System.out.println(" --- ÓĞ»áÔ±½øĞĞµÇÂ¼²Ù×÷... --- ");
+		System.out.println(" --- ï¿½Ğ»ï¿½Ô±ï¿½ï¿½ï¿½Ğµï¿½Â¼ï¿½ï¿½ï¿½ï¿½... --- ");
 
-		// Á½ÖÖ»ñÈ¡Ò³Ãæ±íµ¥Êı¾İµÄ·½Ê½£º
-		System.out.println(" --- 1Ç°¶Ë´«ÈëµÄÓÃ»§Ãû£º---" + model.getUsername());
-		System.out.println(" --- 1Ç°¶Ë´«ÈëµÄÓÃ»§Ãû£º---" + request.getParameter("username"));
+		// ï¿½ï¿½ï¿½Ö»ï¿½È¡Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İµÄ·ï¿½Ê½ï¿½ï¿½
+		System.out.println(" --- 1Ç°ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½---" + model.getUsername());
+		System.out.println(" --- 1Ç°ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½---" + request.getParameter("username"));
 		String usernameForm = model.getUsername();
 		String passwordForm = model.getPassword();
 
 		/*********************************
-		 * ½øĞĞÊı¾İ¿â²éÑ¯²Ù×÷ ** ·½·¨Ò» £º²»Ê¹ÓÃSpring¶Ômybatis¿ØÖÆ·´×ª
+		 * å•çº¯ç”¨mybatisï¼Œæ²¡æœ‰ä½¿ç”¨spring
 		 *******************************/
-		// SqlSession sqlSession = MybatisUtil.getSession(); // ³õÊ¼»¯sqlSession
+		// SqlSession sqlSession = MybatisUtil.getSession(); // ç”Ÿæˆmybatisçš„sqlSession
 		// UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		// // ´´½¨User¶ÔÏó
-		// User user = userMapper.selectOneUserByName(usernameForm); //´ÓÊı¾İ¿â¶ÁÈ¡µÄÓÃ»§¼ÇÂ¼
+		// // ï¿½ï¿½ï¿½ï¿½Userï¿½ï¿½ï¿½ï¿½
+		// User user = userMapper.selectOneUserByName(usernameForm); //ç›´æ¥æ“ä½œmybatisæ•°æ®å±‚
 		// MybatisUtil.closeSession();
 		//
 		// if (user == null) {
-		// System.out.println(" --- µÇÂ¼ÓÃ»§²»´æÔÚ --- ");
+		// System.out.println(" --- ï¿½ï¿½Â¼ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --- ");
 		// }
-		// System.out.println(" --- ²éÑ¯µ½µÄ¶ÔÏó£º" + user + " --- ");
+		// System.out.println(" --- ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½" + user + " --- ");
 		// if (user != null && user.getPassword().equals(passwordForm)) {
 		// httpSession.setAttribute("username", usernameForm);
 		// return "homePage";
 		// } else {
-		// return "redirect:/ycylogin.html"; // redirectÊÇË¢ĞÂÇëÇóµÄ»ıÀÛ£¬·ñÔòµÚÒ»¸öÇëÇó»á»ıÀÛÔÚµÚ¶ş¸öÇëÇóÇ°
+		// return "redirect:/ycylogin.html"; // redirecté‡å®šå‘åˆ°ç™»å½•é¡µ
 		// }
 
 		/*********************************
-		 * ½øĞĞÊı¾İ¿â²éÑ¯²Ù×÷ ** ·½·¨¶ş £ºSpring + mybatis, ×Ô¼ºÊÖ¶¯´´½¨UserService¶ÔÏó,µ÷ÓÃService²ã·½·¨
+		 * Spring + mybatis, éæ³¨è§£æ–¹å¼ç”Ÿæˆuserserviceå¯¹è±¡
 		 *******************************/
 		// UserService userv;
 		// ApplicationContext ctx = new
 		// ClassPathXmlApplicationContext("applicationContext.xml");
 		// userv = ctx.getBean(UserService.class);
 		// boolean loginSuccess = userv.login(usernameForm, passwordForm);
-		// System.out.println(" === ¸ÃÓÃ»§ÊÇ·ñÑéÖ¤Í¨¹ı £º " + loginSuccess);
 		// return (loginSuccess == true) ? "homePage" : "redirect:/ycylogin.html";
 
 		/*********************************
-		 * ½øĞĞÊı¾İ¿â²éÑ¯²Ù×÷ ** ·½·¨Èı £ºSpring + mybatis, ²»¹ıÓÉ×¢½â"@Resource"×Ô¶¯Éú³ÉUserService¶ÔÏó
+		 * Spring + mybatis,ä½¿ç”¨"@Resource"æ³¨è§£æ–¹å¼ç”ŸæˆUserServiceå¯¹è±¡
 		 *******************************/
 		boolean loginSuccess = userservice.login(usernameForm, passwordForm);
-		System.out.println(" === ¸ÃÓÃ»§ÊÇ·ñÑéÖ¤Í¨¹ı £º " + loginSuccess);
 		return (loginSuccess == true) ? "homePage2" : "redirect:/index.html";
 
 	}
 
 	/**
-	 * ´ÓÇ°¶Ë½ÓÊÕÇëÇó£¬ÊµÏÖÓÃ»§×¢²á¹¦ÄÜ
+	 * ï¿½ï¿½Ç°ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ã»ï¿½×¢ï¿½á¹¦ï¿½ï¿½
 	 * 
 	 * @param model
-	 *            Ç°¶Ë´«µİÄ£ĞÍ
+	 *            Ç°ï¿½Ë´ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	 * @param request
-	 *            Ç°¶Ë´«µİÇëÇó
+	 *            Ç°ï¿½Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param httpSession
 	 * @return
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(User model, HttpServletRequest request, HttpSession httpSession) {
-		System.out.println("--------------- µ÷ÓÃÓÃ»§×¢²á¹¦ÄÜ -------------");
+		System.out.println("--------------- ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½×¢ï¿½á¹¦ï¿½ï¿½ -------------");
 		String username = model.getUsername();
 		String password = model.getPassword();
-		boolean registerSuccess = userservice.register(username, password); // µ÷ÓÃservice²ã×¢²á·½·¨
+		boolean registerSuccess = userservice.register(username, password); // ï¿½ï¿½ï¿½ï¿½serviceï¿½ï¿½×¢ï¿½á·½ï¿½ï¿½
 		return (registerSuccess == true) ? "registerSuccess" : "registerFail";
 	}
 
 	/**
-	 * ´ÓÇ°¶Ë½ÓÊÕÇëÇó£¬ÊµÏÖajaxµÇÂ¼ÑéÖ¤
-	 * 
-	 * @param request
-	 *            Ç°¶Ë´«µİÇëÇó
+	 * å‰ç«¯ä¼ å…¥jsonæ•°æ®ï¼ŒéªŒè¯å¯†ç æ˜¯å¦æ­£ç¡®
+	 * @param request å‰ç«¯è¯·æ±‚
 	 * @param httpSession
 	 * @return
 	 */
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public void loginCheck(HttpServletRequest request, HttpServletResponse response) {
-		// ´ÓÇ°¶ËµÄajax¶ÁÈ¡´«ÈëµÄjsonÊı¾İ
-		System.out.println(" --- ajaxÇ°¶Ë´«ÈëµÄÓÃ»§Ãû£º---" + request.getParameter("username"));
-		System.out.println(" --- ajaxÇ°¶Ë´«ÈëµÄÃÜÂë£º---" + request.getParameter("password"));
+		// ç”¨ajaxä¼ å…¥çš„jsonæ•°æ®
+		System.out.println(" --- ajaxä¼ å…¥çš„æ•°æ®---" + request.getParameter("username"));
+		System.out.println(" --- ajaxä¼ å…¥çš„æ•°æ®---" + request.getParameter("password"));
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		boolean loginSuccess = userservice.login(username, password); // ÅĞ¶ÏÊÇ·ñÄÜµÇÂ¼³É¹¦
+		boolean loginSuccess = userservice.login(username, password); // éªŒè¯ç™»å½•å¯†ç 
 		System.out.println("===== loginSuccess? ====" + loginSuccess);
 
-		// ·µ»ØjsonÊı¾İ
+		// è¿”å›jsonæ•°æ®
 		response.setContentType("application/json");
 		try {
 			if (loginSuccess == true) {
-				response.getWriter().println("{\"result\":\"success\"}");
+				response.getWriter().println("{\"result\":\"success\"}");	//æ‹¼è£…jsonæŠ¥æ–‡
 			}else {
 				response.getWriter().println("{\"result\":\"fail\"}");
 			}
 		} catch (IOException e) {
-			System.out.println(" ===== ·µ»ØÊı¾İresponseÉèÖÃÊ§°Ü ==== ");
+			System.out.println(" ===== è¿”å›responseå¤±è´¥ ==== ");
 			e.printStackTrace();
 		}
 	}
 	/**
-	 * ÒÑÑéÖ¤¹ıÃÜÂë£¬µ¥´¿ÊµÏÖĞ¯´øµÇÂ¼ÃûÌø×ª£¬ÊµÏÖajaxµÇÂ¼
-	 * 
-	 * @param model
-	 *            Ç°¶Ë´«µİÄ£ĞÍ
-	 * @param request
-	 *            Ç°¶Ë´«µİÇëÇó
+	 * åˆ©ç”¨postæäº¤è¡¨å•è·³è½¬åˆ°homepage
+	 * @param request å‰ç«¯è¯·æ±‚
 	 * @param httpSession
-	 * @return
+	 * @return homepage
 	 */
 	@RequestMapping(value = "/loginToHomepage", method = RequestMethod.POST)
 	public String processAjax(HttpServletRequest request, HttpServletResponse response) {
-		// ´ÓÇ°¶ËµÄajax¶ÁÈ¡´«ÈëµÄjsonÊı¾İ
+		// å‰ç«¯ajaxä¼ å…¥çš„æ•°æ®
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(" --- µÇÂ¼³É¹¦´«ÈëµÄÓÃ»§Ãû£º---" + username);
-		System.out.println(" --- µÇÂ¼³É¹¦´«ÈëµÄÃÜÂë£º---" + password);
+		System.out.println(" --- æ”¶åˆ°ç™»å½•ç”¨æˆ· ---" + username);
+		System.out.println(" --- ç™»å½•å¯†ç  ---" + password);
 		
 		try {
-			response.getWriter().println("{\"result\":\"success\"}");
+			response.getWriter().println("{\"result\":\"success\"}");	//æ‹¼è£…jsonæ•°æ®è¿”å›ç»™ajax
 		} catch (IOException e) {
-			System.out.println(" --- µÇÂ¼Ìø×ªÒ³ÃæÊ§°Ü --- ");
+			System.out.println(" --- è¿”å›responseå¤±è´¥ --- ");
 			e.printStackTrace();
 		}
 		

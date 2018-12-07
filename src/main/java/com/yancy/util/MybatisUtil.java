@@ -8,9 +8,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**
- * Mybatis¹¤¾ßÀà
- * MybatisUtil.getSession() »ñÈ¡session;
- * MybatisUtil.closeSession() ¹Ø±Õsession;
+ * Mybatiså·¥å…·ç±»
+ * MybatisUtil.getSession() ç”Ÿæˆsession;
+ * MybatisUtil.closeSession() å…³é—­session;
  * @author Yancy
  * 
  */
@@ -19,13 +19,13 @@ public class MybatisUtil {
 	private static SqlSessionFactory sessionFactory = null;
 
 	/*
-	 * ´´½¨±¾µØÏß³Ì±äÁ¿£¬ÎªÃ¿Ò»¸öÏß³Ì¶ÀÁ¢¹ÜÀíÒ»¸ösession¶ÔÏó Ã¿Ò»¸öÏß³ÌÖ»ÓĞÇÒ½öÓĞµ¥¶ÀÇÒÎ¨Ò»µÄÒ»¸ösession¶ÔÏó
-	 * ¼ÓÉÏÏß³Ì±äÁ¿¶Ôsession½øĞĞ¹ÜÀí£¬¿ÉÒÔ±£Ö¤Ïß³Ì°²È«£¬±ÜÃâ¶àÊµÀıÍ¬Ê±µ÷ÓÃÍ¬Ò»¸ösession¶ÔÏó
-	 * Ã¿Ò»¸öÏß³Ì¶¼»ánewÒ»¸öÏß³Ì±äÁ¿£¬´Ó¶ø·ÖÅäµ½×Ô¼ºµÄsession¶ÔÏó
+	 * åˆ›å»ºæœ¬åœ°çº¿ç¨‹å˜é‡ï¼Œä¸ºæ¯ä¸€ä¸ªçº¿ç¨‹ç‹¬ç«‹ç®¡ç†ä¸€ä¸ªsessionå¯¹è±¡ æ¯ä¸€ä¸ªçº¿ç¨‹åªæœ‰ä¸”ä»…æœ‰å•ç‹¬ä¸”å”¯ä¸€çš„ä¸€ä¸ªsessionå¯¹è±¡
+	 * åŠ ä¸Šçº¿ç¨‹å˜é‡å¯¹sessionè¿›è¡Œç®¡ç†ï¼Œå¯ä»¥ä¿è¯çº¿ç¨‹å®‰å…¨ï¼Œé¿å…å¤šå®ä¾‹åŒæ—¶è°ƒç”¨åŒä¸€ä¸ªsessionå¯¹è±¡
+	 * æ¯ä¸€ä¸ªçº¿ç¨‹éƒ½ä¼šnewä¸€ä¸ªçº¿ç¨‹å˜é‡ï¼Œä»è€Œåˆ†é…åˆ°è‡ªå·±çš„sessionå¯¹è±¡
 	 */
 	private static ThreadLocal<SqlSession> threadlocal = new ThreadLocal<SqlSession>();
 
-	// ´´½¨sessionFactory¶ÔÏó£¬ÒòÎªÕû¸öÓ¦ÓÃ³ÌĞòÖ»ĞèÒªÒ»¸öÊµÀı¶ÔÏó£¬¹ÊÓÃ¾²Ì¬´úÂë¿é
+	// åˆ›å»ºsessionFactoryå¯¹è±¡ï¼Œå› ä¸ºæ•´ä¸ªåº”ç”¨ç¨‹åºåªéœ€è¦ä¸€ä¸ªå®ä¾‹å¯¹è±¡ï¼Œæ•…ç”¨é™æ€ä»£ç å—
 	static {
 		try {
 			Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
@@ -37,7 +37,7 @@ public class MybatisUtil {
 	}
 
 	/**
-	 * ·µ»ØsessionFactory¶ÔÏó ¹¤³§¶ÔÏó
+	 * è¿”å›sessionFactoryå¯¹è±¡ å·¥å‚å¯¹è±¡
 	 * @return sessionFactory
 	 */
 	public static SqlSessionFactory getSessionFactory() {
@@ -45,40 +45,40 @@ public class MybatisUtil {
 	}
 
 	/**
-	 * ĞÂ½¨session»á»°£¬²¢°Ñsession·ÅÔÚÏß³Ì±äÁ¿ÖĞ
+	 * æ–°å»ºsessionä¼šè¯ï¼Œå¹¶æŠŠsessionæ”¾åœ¨çº¿ç¨‹å˜é‡ä¸­
 	 */
 	private static void newSession() {
-		// ´ò¿ªÒ»¸ösession»á»°
+		// æ‰“å¼€ä¸€ä¸ªsessionä¼šè¯
 		SqlSession session = sessionFactory.openSession();
-		// ½«session»á»°±£´æÔÚ±¾Ïß³Ì±äÁ¿ÖĞ
+		// å°†sessionä¼šè¯ä¿å­˜åœ¨æœ¬çº¿ç¨‹å˜é‡ä¸­
 		threadlocal.set(session);
 	}
 	
 	/**
-	 * ·µ»Øsession¶ÔÏó
+	 * è¿”å›sessionå¯¹è±¡
 	 * @return session
 	 */
 	public static SqlSession getSession(){
 
-		//ÓÅÏÈ´ÓÏß³Ì±äÁ¿ÖĞÈ¡session¶ÔÏó
+		//ä¼˜å…ˆä»çº¿ç¨‹å˜é‡ä¸­å–sessionå¯¹è±¡
 		SqlSession session = threadlocal.get();
-		//Èç¹ûÏß³Ì±äÁ¿ÖĞµÄsessionÎªnull£¬
+		//å¦‚æœçº¿ç¨‹å˜é‡ä¸­çš„sessionä¸ºnullï¼Œ
 		if(session==null){
-			//ĞÂ½¨session»á»°£¬²¢°Ñsession·ÅÔÚÏß³Ì±äÁ¿ÖĞ
+			//æ–°å»ºsessionä¼šè¯ï¼Œå¹¶æŠŠsessionæ”¾åœ¨çº¿ç¨‹å˜é‡ä¸­
 			newSession();
-			//ÔÙ´Î´ÓÏß³Ì±äÁ¿ÖĞÈ¡session¶ÔÏó
+			//å†æ¬¡ä»çº¿ç¨‹å˜é‡ä¸­å–sessionå¯¹è±¡
 			session = threadlocal.get();
 		}
 		return session;
 	}
 	
 	/**
-	 * ¹Ø±Õsession¶ÔÏó£¬²¢´ÓÏß³Ì±äÁ¿ÖĞÉ¾³ı
+	 * å…³é—­sessionå¯¹è±¡ï¼Œå¹¶ä»çº¿ç¨‹å˜é‡ä¸­åˆ é™¤
 	 */
 	public static void closeSession(){
-		//¶ÁÈ¡³öÏß³Ì±äÁ¿ÖĞsession¶ÔÏó
+		//è¯»å–å‡ºçº¿ç¨‹å˜é‡ä¸­sessionå¯¹è±¡
 		SqlSession session = threadlocal.get();
-		//Èç¹ûsession¶ÔÏó²»Îª¿Õ£¬¹Ø±Õsessoin¶ÔÏó£¬²¢Çå¿ÕÏß³Ì±äÁ¿
+		//å¦‚æœsessionå¯¹è±¡ä¸ä¸ºç©ºï¼Œå…³é—­sessoinå¯¹è±¡ï¼Œå¹¶æ¸…ç©ºçº¿ç¨‹å˜é‡
 		if(session!=null){
 			session.close();
 			threadlocal.set(null);
