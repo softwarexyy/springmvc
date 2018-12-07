@@ -55,6 +55,7 @@ function loadXMLPost() {
  * 如果登录失败，则在页面显示错误
  */
 function loginCheck() {
+	var successflag = true;
 	$.ajax({
 		type: "post",
 		url: "app/loginCheck.do",
@@ -63,17 +64,20 @@ function loginCheck() {
 			username: $("#username").val(),
 			password: $("#password").val()
 		},
-		async: true,
+		async: false,	//此处采用同步，等待ajax返回才会给successflag赋值，否则successflag不一定拿到ajax赋值结果
 		success: function(data) {
 			if(data.result == "success") {
 				//$(location).attr("href", "app/loginToHomepage.do");	//重定向到登录主页,只能用get，此方法不行
-				$("#loginForm").submit();	//此处提交表单，到成功主页
+				//$("#loginForm").submit();	//此处提交表单，到成功主页
+				successflag = true;
 			} else {
 				alert("Log in Fail");
+				successflag = false;
 			}
 		},
 		error: function(data) {
 			alert("error" + data.responseText);
 		}
 	});
+	return successflag;
 }

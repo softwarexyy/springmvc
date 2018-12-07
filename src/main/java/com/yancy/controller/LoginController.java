@@ -166,13 +166,15 @@ public class LoginController {
 	@RequestMapping(value = "/loginToHomepage", method = RequestMethod.POST)
 	public String processAjax(HttpServletRequest request, HttpServletResponse response) {
 		// 从前端的ajax读取传入的json数据
-		System.out.println(" --- 登录成功传入的用户名：---" + request.getParameter("username"));
-		System.out.println(" --- 登录成功传入的密码：---" + request.getParameter("password"));
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		System.out.println(" --- 登录成功传入的用户名：---" + username);
+		System.out.println(" --- 登录成功传入的密码：---" + password);
 		
 		try {
 			response.getWriter().println("{\"result\":\"success\"}");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println(" --- 登录跳转页面失败 --- ");
 			e.printStackTrace();
 		}
 		

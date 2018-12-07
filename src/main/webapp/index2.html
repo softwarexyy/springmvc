@@ -7,15 +7,16 @@
 	</head>
 
 	<body>
-	<form id="loginForm" action="app/loginToHomepage.do" method="post">
+	<form id="loginForm" action="app/loginToHomepage.do" method="post" onsubmit="return loginCheck()">
 		<label>ำรปงร๛:</label>
 		<input type="text" id="username" name="username" />
 		<label>รÜย๋ฃบ</label>
 		<input type="password" id="password" name="password" />
 		
 		<!-- <button id="btn" onclick="sumitFormAjax()">sign in</button> -->
+		<input type="submit" id="submit" value="log in" />	
 	</form>
-		<button id="btn2" onclick="loginCheck()">ตวยผ</button>
+		<!-- <button id="btn2" onclick="loginCheck()">ตวยผ</button> -->
 	</body>
 
 	</body>
