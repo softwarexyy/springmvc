@@ -27,7 +27,7 @@ function loginCheck() {
 		alert("密码不能为空哟");
 		return false;
 	}
-	var successflag = true;
+	var successflag = false;
 	$.ajax({
 		type: "post",
 		url: "app/loginCheck.do",
