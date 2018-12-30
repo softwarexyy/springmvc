@@ -17,7 +17,8 @@
 </head>
 <body class="templatemo-bg-image-1">
 	<div class="container">
-		<div class="col-md-12">			
+		<div class="col-md-12">	
+		<!-- 以下登录表单中，先用js方法loginCheck发送ajax请求查询登录是否通过，如果通过，然后再根据action跳转到homepage -->		
 			<form class="form-horizontal templatemo-login-form-2" id="loginForm" role="form" action="app/loginToHomepage.do" method="post" onsubmit="return loginCheck()">
 				<div class="row">
 					<div class="col-md-12">

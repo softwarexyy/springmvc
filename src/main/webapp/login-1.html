@@ -10,17 +10,20 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 	<link href="css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
 </head>
 <body class="templatemo-bg-gray">
 	<div class="container">
 		<div class="col-md-12">
 			<h1 class="margin-bottom-15">Login</h1>
-			<form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form" action="#" method="post">				
+			<form class="form-horizontal templatemo-container templatemo-login-form-1 margin-bottom-30" role="form" action="app/loginToHomepage.do" method="post" onsubmit="return loginCheck()">				
 		        <div class="form-group">
 		          <div class="col-xs-12">		            
 		            <div class="control-wrapper">
 		            	<label for="username" class="control-label fa-label"><i class="fa fa-user fa-medium"></i></label>
-		            	<input type="text" class="form-control" id="username" placeholder="Username">
+		            	<input type="text" class="form-control" id="username" name="username" placeholder="Username">
 		            </div>		            	            
 		          </div>              
 		        </div>
@@ -28,7 +31,7 @@
 		          <div class="col-md-12">
 		          	<div class="control-wrapper">
 		            	<label for="password" class="control-label fa-label"><i class="fa fa-lock fa-medium"></i></label>
-		            	<input type="password" class="form-control" id="password" placeholder="Password">
+		            	<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		            </div>
 		          </div>
 		        </div>
@@ -48,19 +51,6 @@
 		          		<a href="forgot-password.html" class="text-right pull-right">Forgot password?</a>
 		          	</div>
 		          </div>
-		        </div>
-		        <hr>
-		        <div class="form-group">
-		        	<div class="col-md-12">
-		        		<label>Login with: </label>
-		        		<div class="inline-block">
-		        			<a href="#"><i class="fa fa-facebook-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-twitter-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-google-plus-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-tumblr-square login-with"></i></a>
-			        		<a href="#"><i class="fa fa-github-square login-with"></i></a>
-		        		</div>		        		
-		        	</div>
 		        </div>
 		      </form>
 		      <div class="text-center">
