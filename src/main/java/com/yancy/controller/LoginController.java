@@ -41,8 +41,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/welcome1")
 	public String hello1() {
-		System.out.println(" --- ���ο͵�½ --- ");
-		return "register"; // ��ʵ�ǰ�springmvc.xml�����ļ��е�ǰ��׺����һ�� ��"/hello.html"
+		System.out.println(" --- 进入注册页 --- ");
+		return "register";
 	}
 
 	/**
@@ -102,21 +102,20 @@ public class LoginController {
 	}
 
 	/**
-	 * ��ǰ�˽�������ʵ���û�ע�Ṧ��
+	 * 实现注册功能
 	 * 
 	 * @param model
-	 *            ǰ�˴���ģ��
 	 * @param request
-	 *            ǰ�˴�������
 	 * @param httpSession
 	 * @return
 	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(User model, HttpServletRequest request, HttpSession httpSession) {
-		System.out.println("--------------- �����û�ע�Ṧ�� -------------");
+		System.out.println("--------------- 开始注册 -------------");
 		String username = model.getUsername();
 		String password = model.getPassword();
-		boolean registerSuccess = userservice.register(username, password); // ����service��ע�᷽��
+		boolean registerSuccess = userservice.register(username, password);
+		System.out.println("--------------- 注册成功了吗？ -------" + registerSuccess);
 		return (registerSuccess == true) ? "registerSuccess" : "registerFail";
 	}
 
