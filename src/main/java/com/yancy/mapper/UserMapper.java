@@ -10,7 +10,7 @@ import com.yancy.model.User;
  */
 public interface UserMapper {
 
-	public User selectOneUser(String id);
+	public User selectOneUserById(String id);
 	
 	public User selectOneUserByName(String username);
 
