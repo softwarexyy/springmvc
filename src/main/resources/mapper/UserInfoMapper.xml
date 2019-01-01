@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yancy.mapper.UserInfoMapper"> <!-- 对应UserInfoMapper接口中对应的方法 -->
+    
+	<select id="qryUserInfoByName" parameterType="String" resultType="com.yancy.model.UserInfo">
+		select * from to_userinfo where name=#{username}
+	</select>
+	
+	<update id="updateLoginTime">
+		update to_userinfo set logintime=#{arg0} where name=#{arg1}
+	</update>
+	
+	<update id="updateLastLoginTime">
+		update to_userinfo set lastlogintime=#{arg0} where name=#{arg1}
+	</update>
+
+</mapper>

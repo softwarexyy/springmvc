@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yancy.mapper.UserMapper;
 import com.yancy.model.User;
+import com.yancy.model.UserInfo;
 import com.yancy.service.UserService;
 import com.yancy.util.MybatisUtil;
 
@@ -55,11 +56,9 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(User model, HttpServletRequest request, HttpServletResponse response, HttpSession httpSession) {
-		System.out.println(" --- �л�Ա���е�¼����... --- ");
 
-		// ���ֻ�ȡҳ������ݵķ�ʽ��
-		System.out.println(" --- 1ǰ�˴�����û�����---" + model.getUsername());
-		System.out.println(" --- 1ǰ�˴�����û�����---" + request.getParameter("username"));
+		System.out.println(" ------" + model.getUsername());
+		System.out.println(" ------" + request.getParameter("username"));
 		String usernameForm = model.getUsername();
 		String passwordForm = model.getPassword();
 
@@ -155,7 +154,7 @@ public class LoginController {
 	 * @return homepage
 	 */
 	@RequestMapping(value = "/loginToHomepage", method = RequestMethod.POST)
-	public String processAjax(HttpServletRequest request, HttpServletResponse response) {
+	public String processAjax(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		// 前端ajax传入的数据
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -168,7 +167,10 @@ public class LoginController {
 			System.out.println(" --- 返回response失败 --- ");
 			e.printStackTrace();
 		}
-		
+		session.setAttribute("username", username);
+		UserInfo userInfo = userservice.doAfterLogin(username);	//查询用户信息
+		session.setAttribute("userinfo", userInfo);
+
 		return "homepage";
 	}
 	

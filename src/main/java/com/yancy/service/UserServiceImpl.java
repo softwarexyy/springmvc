@@ -1,10 +1,14 @@
 package com.yancy.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+import com.yancy.mapper.UserInfoMapper;
 import com.yancy.mapper.UserMapper;
 import com.yancy.model.*;
 
@@ -12,7 +16,10 @@ import com.yancy.model.*;
 public class UserServiceImpl implements UserService {
 
 	@Resource
-	private UserMapper mapper;	//��ʼ�����ݿ��������
+	private UserMapper mapper; // 生成mapper对象
+
+	@Resource
+	private UserInfoMapper uinfoMapper;
 
 	/**
 	 * 根据用户名查询用户
@@ -35,7 +42,7 @@ public class UserServiceImpl implements UserService {
 		else
 			return true;
 	}
-	
+
 	/**
 	 * 用户注册
 	 */
@@ -48,10 +55,39 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
-		String userid = UUID.randomUUID().toString().replaceAll("-",""); // 根据uuid生成唯一的userid
+		String userid = UUID.randomUUID().toString().replaceAll("-", ""); // 根据uuid生成唯一的userid
 		user.setUserid(userid);
 		mapper.insertUser(user);
-		
+
 		return true;
 	}
+
+	/**
+	 * 登录之后相关操作(1:返回当前用户信息；2:刷新用户登录次数和上次登录时间)
+	 */
+	public UserInfo doAfterLogin(String username) {
+		UserInfo userInfo = new UserInfo();
+		// 查询用户信息
+		try {
+			userInfo = uinfoMapper.qryUserInfoByName(username);
+			if (userInfo == null) {
+				System.out.println(" +++++++ " + "用户信息查询结果为空" + "+++++");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// 刷新用户登录次数
+		int loginTime = userInfo.getLoginTime();
+		uinfoMapper.updateLoginTime(loginTime + 1, username);
+		
+		// 刷新用户登录时间
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String newLastLoginTime = sdf.format(date);
+		uinfoMapper.updateLastLoginTime(newLastLoginTime, username);
+		
+		return userInfo;
+	}
+
 }

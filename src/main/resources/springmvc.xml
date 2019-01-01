@@ -19,6 +19,6 @@
 	<!-- 视图解析器 如果不需要返回页面也可以不配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 </beans>
