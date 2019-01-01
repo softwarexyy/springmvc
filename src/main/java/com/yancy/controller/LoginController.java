@@ -168,7 +168,7 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		session.setAttribute("username", username);
-		UserInfo userInfo = userservice.doAfterLogin(username);	//查询用户信息
+		UserInfo userInfo = userservice.doAfterLogin(username);	//查询用户信息，记录用户登录次数/登录时间
 		session.setAttribute("userinfo", userInfo);
 
 		return "homepage";
