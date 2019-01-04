@@ -1,3 +1,4 @@
+
 function showAccount() {
 	alert("我的账户");
 }
