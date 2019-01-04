@@ -5,18 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/springmvc/js/homepage.js"></script>
-<title>欢迎</title>
+<title>LGP BANK</title>
 </head>
 <body>
-	您好, ${sessionScope.username} !<br/><br/><br/>
-	欢迎来到本行。这是您第 ${sessionScope.userinfo.loginTime} 次来到本行，上次登录时间: ${sessionScope.userinfo.lastLoginTime}
+	<div id="titleLogo" align="center">
+		<p><img src="/springmvc/images/titleLogo.png" width="1165" height="85" /></p>
+	</div>
+	<div id="text" align="center">
+		您好, ${sessionScope.username} !<br/>
+		欢迎来到本行。这是您第 ${sessionScope.userinfo.loginTime} 次来到本行，上次登录时间: ${sessionScope.userinfo.lastLoginTime}
+		<br/>
+	</div>
 
-	<br />
-	<a href="#"><img src="/springmvc/images/personalInfo.png" onclick="maintainPersonInfo()" /></a>
-	<a href="#"><img src="/springmvc/images/myAccount.png" onclick="showAccount()" /></a>
-		
-	<br />
-	<a href="#"><img src="/springmvc/images/myBills.png" onclick="showBills()" /></a>
-	<a href="#"><img src="/springmvc/images/transferMoney.png" onclick="transferMoney()" /></a>
+	<div id="buttonTable" align="center">
+		<table width="800" border="0">
+	  		<tr>
+	    		<td height="80"><a href="/springmvc/personalInfo.jsp"><img src="/springmvc/images/personalInfo.png" width="231" height="37" /></a></td>
+	    		<td><a href="#"><img src="/springmvc/images/myAccount.png" width="231" height="37" onclick="showAccount()" /></a></td>
+      		</tr>
+	  		<tr>
+	    		<td height="80"><a href="#"><img src="/springmvc/images/myBills.png" width="231" height="37" onclick="showBills()" /></a></td>
+	    		<td><a href="#"><img src="/springmvc/images/transferMoney.png" width="231" height="37" onclick="transferMoney()" /></a></td>
+      		</tr>
+		</table>
+	</div>
 </body>
 </html>

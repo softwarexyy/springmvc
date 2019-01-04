@@ -1,7 +1,3 @@
-function maintainPersonInfo() {
-	alert("个人资料");
-}
-
 function showAccount() {
 	alert("我的账户");
 }
