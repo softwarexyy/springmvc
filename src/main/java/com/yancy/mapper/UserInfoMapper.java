@@ -11,4 +11,6 @@ public interface UserInfoMapper {
 	public UserInfo qryUserInfoByName(String username);	//查询个人信息
 	public void updateLoginTime(int newLoginTime, String username);	// 更新用户登录次数
 	public void updateLastLoginTime(String newLastLoginTime, String username);	// 更新上次登录时间
+	public void updateBirthday(String newBirthday, String username);	//更新用户生日
+	public void updateGender(String newGender, String username);	//更新用户性别
 }

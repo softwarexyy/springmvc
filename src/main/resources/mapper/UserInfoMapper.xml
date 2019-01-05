@@ -15,5 +15,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateLastLoginTime">
 		update to_userinfo set lastlogintime=#{arg0} where name=#{arg1}
 	</update>
+	
+	<update id="updateBirthday">
+		update to_userinfo set birthday=#{arg0} where name=#{arg1}
+	</update>
+	
+	<update id="updateGender">
+		update to_userinfo set gender=#{arg0} where name=#{arg1}
+	</update>
 
 </mapper>

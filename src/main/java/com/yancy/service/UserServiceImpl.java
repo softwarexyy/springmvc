@@ -90,4 +90,20 @@ public class UserServiceImpl implements UserService {
 		return userInfo;
 	}
 
+	@Override
+	public void updateBirthday(String birthday, String username) {
+		uinfoMapper.updateBirthday(birthday, username);
+	}
+
+	@Override
+	public void updateGender(String gender, String username) {
+		uinfoMapper.updateGender(gender, username);
+	}
+
+	@Override
+	public UserInfo qryUserInfo(String username) {
+		uinfoMapper.qryUserInfoByName(username);
+		return null;
+	}
+
 }

@@ -8,12 +8,26 @@
 </head>
 <body>
 	<div id="titleLogo" align="left">
-		<p><img src="/springmvc/images/titleLogo.png" width="1165" height="85" /></p>
+		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 	</div>
-	<div>
-		个人信息页面<br/>
-		您好, ${sessionScope.username}	
-	</div>
-
+	<form id="form" name="form" method="post" action="modifyUserInfo.do">
+	  <table width="296" border="0">
+        <tr>
+          <td width="81" height="34">用户名</td>
+          <td width="199"><input type="text" name="username" value="${sessionScope.username}" readonly /></td>
+        </tr>
+        <tr>
+          <td height="34">生日</td>
+          <td><input type="text" id="birthday" name="birthday" value="${sessionScope.userinfo.birthday}" /></td>
+        </tr>
+        <tr>
+          <td height="30">性别</td>
+          <td><input type="text" id="gender" name="gender" value="${sessionScope.userinfo.gender}" /></td>
+        </tr>
+      </table>
+      <p>
+        <input type="submit" name="submit" id="submit" value="提交修改" />
+      </p>
+	</form>
 </body>
 </html>

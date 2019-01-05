@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="titleLogo" align="left">
-		<p><img src="/springmvc/images/titleLogo.png" width="1165" height="85" /></p>
+		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 	</div>
 	<div id="text" align="left">
 		您好, ${sessionScope.username} !<br/>

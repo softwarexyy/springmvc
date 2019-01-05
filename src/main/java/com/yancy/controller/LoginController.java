@@ -169,7 +169,7 @@ public class LoginController {
 		}
 		session.setAttribute("username", username);
 		UserInfo userInfo = userservice.doAfterLogin(username);	//查询用户信息，记录用户登录次数/登录时间
-		session.setAttribute("userinfo", userInfo);
+		session.setAttribute("userinfo", userInfo);	// 在session中存储用户信息
 
 		return "homepage";
 	}
