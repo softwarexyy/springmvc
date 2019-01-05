@@ -8,16 +8,16 @@
 <title>LGP BANK</title>
 </head>
 <body>
-	<div id="titleLogo" align="center">
+	<div id="titleLogo" align="left">
 		<p><img src="/springmvc/images/titleLogo.png" width="1165" height="85" /></p>
 	</div>
-	<div id="text" align="center">
+	<div id="text" align="left">
 		您好, ${sessionScope.username} !<br/>
 		欢迎来到本行。这是您第 ${sessionScope.userinfo.loginTime} 次来到本行，上次登录时间: ${sessionScope.userinfo.lastLoginTime}
 		<br/>
 	</div>
 
-	<div id="buttonTable" align="center">
+	<div id="buttonTable" align="left">
 		<table width="800" border="0">
 	  		<tr>
 	    		<td height="80"><a href="/springmvc/personalInfo.jsp"><img src="/springmvc/images/personalInfo.png" width="231" height="37" /></a></td>

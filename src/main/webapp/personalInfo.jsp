@@ -7,7 +7,13 @@
 <title>LGP BANK</title>
 </head>
 <body>
-	个人信息页面<br/>
-	您好, ${sessionScope.username}
+	<div id="titleLogo" align="left">
+		<p><img src="/springmvc/images/titleLogo.png" width="1165" height="85" /></p>
+	</div>
+	<div>
+		个人信息页面<br/>
+		您好, ${sessionScope.username}	
+	</div>
+
 </body>
 </html>
