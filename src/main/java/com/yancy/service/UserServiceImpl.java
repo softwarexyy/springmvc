@@ -102,8 +102,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserInfo qryUserInfo(String username) {
-		uinfoMapper.qryUserInfoByName(username);
-		return null;
+		UserInfo uinfo = uinfoMapper.qryUserInfoByName(username);
+		return uinfo;
 	}
 
 }

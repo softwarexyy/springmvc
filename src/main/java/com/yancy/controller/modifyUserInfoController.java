@@ -31,7 +31,7 @@ public class modifyUserInfoController {
 		userservice.updateGender(gender, username);
 		
 		UserInfo userInfo = userservice.qryUserInfo(username);
-		session.setAttribute("userinfo", userInfo);
+		session.setAttribute("userinfo", userInfo);	//改变session中的用户信息
 		return "modifyUserInfoSuccess";	// 返回到 modifyUserInfoSuccess.jsp 页面
 	}
 }
