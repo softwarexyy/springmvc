@@ -22,5 +22,13 @@
         	修改成功
         </p>
     </div>
+    <div id="return">
+    	<br/><br/><br/>
+    	<p>&nbsp;
+        	<a href="/springmvc/homepage.jsp">
+        		<img src="/springmvc/images/returnToHomepage.png" width="180" height="35" />
+            </a>
+        </p>
+    </div>
 </body>
 </html>

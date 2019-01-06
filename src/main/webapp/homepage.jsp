@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/springmvc/js/homepage.js"></script>
+<script type="text/javascript" src="/springmvc/js/jquery.min.js"></script>
 <title>LGP BANK</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
 		<table width="800" border="0">
 	  		<tr>
 	    		<td height="80"><a href="/springmvc/personalInfo.jsp"><img src="/springmvc/images/personalInfo.png" width="231" height="37" /></a></td>
-	    		<td><a href="#"><img src="/springmvc/images/myAccount.png" width="231" height="37" onclick="showAccount()" /></a></td>
+	    		<td><a href="#"><img src="/springmvc/images/myAccount.png" width="231" height="37" onclick="showAccount('<%=session.getAttribute("username") %>')" /></a></td>
       		</tr>
 	  		<tr>
 	    		<td height="80"><a href="#"><img src="/springmvc/images/myBills.png" width="231" height="37" onclick="showBills()" /></a></td>
