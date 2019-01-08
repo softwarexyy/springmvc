@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class showAccountController {
 
 	@RequestMapping(value = "/showAccount", method = RequestMethod.POST)
-	public String toAccountPage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public void toAccountPage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String username = request.getParameter("username");
 		System.out.println("showAccount传入的用户名：" + username);
 		// 返回json数据
@@ -31,6 +31,5 @@ public class showAccountController {
 			System.out.println(" ===== 返回response失败 ==== ");
 			e.printStackTrace();
 		}
-		return "showAccount";
 	}
 }

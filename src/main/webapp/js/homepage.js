@@ -18,7 +18,7 @@ function showAccount(argUsername) {
 //			} else {
 //				alert("登录失败了...x_x");
 //			}
-			alert("success" + data);
+			alert("success" + data.result);
 		},
 		error: function(data) {
 //			alert("error" + data.responseText);
