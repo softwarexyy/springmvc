@@ -4,9 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>小金猪银行</title>
 </head>
 <body>
-
+	<div id="titleLogo" align="left">
+		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
+	</div>
+		<p>银行卡号：
+			<select id="accout">
+				<option id="option1">6222 5625 8979 4658 552</option>
+				<option id="option2">6222 5569 8545 1236 525</option>
+			</select>
+		</p>
+		<p>总财富：
+			<label id="sum">1,123,123.49</label> 元
+		</p>
+        <br />
+		<p>活期：
+			<label id="currency">3,123.49</label> 元
+		</p>
+		<p>定期：
+			<label id="timedeposit">23.49</label> 元
+		</p>
+		<p>其他理财：
+			<label id="financialdeposit">23,123.49</label> 元
+		</p>
+		<p><a href="/springmvc/homepage.jsp"><img src="/springmvc/images/returnToHomepage.png" width="180" height="35" /></a></p>
 </body>
 </html>
