@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>小金猪银行</title>
+<script type="text/javascript" src="/springmvc/js/showAccount.js"></script>
+<script type="text/javascript" src="/springmvc/js/jquery.min.js"></script>
+<script type="text/javascript">
+</script>
+<title>我的账户|小金猪银行</title>
 </head>
-<body>
+<body onload="getSubAccount('<%=session.getAttribute("username") %>')"> <!-- 初始化页面 -->
 	<div id="titleLogo" align="left">
 		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 	</div>

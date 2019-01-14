@@ -9,9 +9,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.yancy.model.User;
 
 /**
- * homepage.jsp页面跳转至 我的账户 控制器
+ * showAccount.jsp页面跳转至 我的账户 控制器
  * 
  * @author Yancy
  *
@@ -31,5 +34,20 @@ public class showAccountController {
 			System.out.println(" ===== 返回response失败 ==== ");
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * TODO: 返回用户下挂账号
+	 * @return
+	 */
+	@RequestMapping(value = "/getSubAccount", method = RequestMethod.POST)
+	@ResponseBody
+	public User getSubAccount() {
+		System.out.println("getSubAccount =====");
+		User user = new User();
+		user.setUserid("123");
+		user.setUsername("123");
+		user.setPassword("123");
+		return user;
 	}
 }
