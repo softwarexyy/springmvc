@@ -1,6 +1,8 @@
 package com.yancy.controller;
 
+import java.awt.List;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,16 +40,15 @@ public class showAccountController {
 	
 	/**
 	 * TODO: 返回用户下挂账号
-	 * @return
+	 * @return 下挂账号的list列表
 	 */
 	@RequestMapping(value = "/getSubAccount", method = RequestMethod.POST)
 	@ResponseBody
-	public User getSubAccount() {
-		System.out.println("getSubAccount =====");
-		User user = new User();
-		user.setUserid("123");
-		user.setUsername("123");
-		user.setPassword("123");
-		return user;
+	public ArrayList<String> getSubAccount() {
+		System.out.println("ArrayList requestmapping");
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("6524 8546 8797 4564 556");
+		list.add("6524 8546 8797 4564 789");
+		return list;
 	}
 }

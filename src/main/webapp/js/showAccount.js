@@ -14,7 +14,10 @@ function getSubAccount(argUsername) {
 		},
 		async: false,	//此处采用同步，等待ajax返回才会给successflag赋值，否则successflag不一定拿到ajax赋值结果
 		success: function(data) {
-			alert("success " + data.userid + data.username + data.password);	//测试返回的json报文
+			alert("成功，数据长度： " + data.length);	//测试返回的json报文
+			for (var i=0; i<data.length; i++) {
+				alert("第"+ i + "个账号: " + data[i]);
+			}
 		},
 		error: function(data) {
 			alert("failed" + data);
