@@ -7,6 +7,7 @@
 <script type="text/javascript" src="/springmvc/js/showAccount.js"></script>
 <script type="text/javascript" src="/springmvc/js/jquery.min.js"></script>
 <script type="text/javascript">
+
 </script>
 <title>我的账户|小金猪银行</title>
 </head>
@@ -15,8 +16,8 @@
 		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 	</div>
 		<p>银行卡号：
-			<select id="accout">
-				<!-- 此处由js动态添加从数据库读出的账号 -->
+			<select id="account" onchange="qryAccount()">
+				<option value="0">--- 请选择账号---</option>
 			</select>
 		</p>
 		<p>总财富：
