@@ -16,8 +16,7 @@
 	</div>
 		<p>银行卡号：
 			<select id="accout">
-				<option id="option1">6222 5625 8979 4658 552</option>
-				<option id="option2">6222 5569 8545 1236 525</option>
+				<!-- 此处由js动态添加从数据库读出的账号 -->
 			</select>
 		</p>
 		<p>总财富：

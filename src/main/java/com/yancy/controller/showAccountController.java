@@ -44,8 +44,8 @@ public class showAccountController {
 	 */
 	@RequestMapping(value = "/getSubAccount", method = RequestMethod.POST)
 	@ResponseBody
-	public ArrayList<String> getSubAccount() {
-		System.out.println("ArrayList requestmapping");
+	public ArrayList<String> getSubAccount(HttpServletRequest request) {
+		System.out.println(request.getParameter("username") + request.getParameter("username1")); //读取ajax传入的数据
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("6524 8546 8797 4564 556");
 		list.add("6524 8546 8797 4564 789");
