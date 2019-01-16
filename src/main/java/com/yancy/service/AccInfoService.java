@@ -1,5 +1,7 @@
 package com.yancy.service;
 
+import java.util.List;
+
 import com.yancy.model.AccInfo;
 
 /**
@@ -9,5 +11,5 @@ import com.yancy.model.AccInfo;
  */
 public interface AccInfoService {
 
-	public AccInfo getAccInfo();	// 获取账号信息
+	public List<String> getSubAcc(String username);	// 获取下挂账号
 }

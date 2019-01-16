@@ -23,5 +23,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertUser" parameterType="com.yancy.model.User" useGeneratedKeys="true" keyProperty="id" >
 		insert into userinfo(userid,username,password) values(#{userid},#{username},#{password})
 	</insert>
+	
+	<select id="selectUidByName" resultType="String">
+		select userid from userinfo where username=#{username}
+	</select>
 
 </mapper>

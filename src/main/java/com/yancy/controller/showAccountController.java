@@ -1,9 +1,10 @@
 package com.yancy.controller;
 
-import java.awt.List;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yancy.model.User;
+import com.yancy.service.AccInfoService;
 
 /**
  * showAccount.jsp页面跳转至 我的账户 控制器
@@ -24,6 +26,9 @@ import com.yancy.model.User;
 @Controller
 public class showAccountController {
 
+	@Resource
+	private AccInfoService accInfoService;
+	
 	@RequestMapping(value = "/showAccount", method = RequestMethod.POST)
 	public void showAccount(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		String username = request.getParameter("username");
@@ -39,16 +44,15 @@ public class showAccountController {
 	}
 	
 	/**
-	 * TODO: 返回用户下挂账号
+	 * 查询用户下挂账户
 	 * @return 下挂账号的list列表
 	 */
 	@RequestMapping(value = "/getSubAccount", method = RequestMethod.POST)
 	@ResponseBody
-	public ArrayList<String> getSubAccount(HttpServletRequest request) {
-		System.out.println(request.getParameter("username") + request.getParameter("username1")); //读取ajax传入的数据
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("6524 8546 8797 4564 556");
-		list.add("6524 8546 8797 4564 789");
+	public List<String> getSubAccount(HttpServletRequest request) {
+		List<String> list = new ArrayList<String>();
+		list = accInfoService.getSubAcc(request.getParameter("username"));
+		
 		return list;
 	}
 }

@@ -1,5 +1,7 @@
 package com.yancy.mapper;
 
+import java.util.List;
+
 import com.yancy.model.AccInfo;
 
 /**
@@ -9,5 +11,7 @@ import com.yancy.model.AccInfo;
  */
 public interface AccInfoMapper {
 
-	public AccInfo getAccInfoByID(String userid);
+	public AccInfo getAccInfoDetail(String userid, String account);	//获取账号详细信息
+	
+	public List<String> getSubAccount(String userid);	//获取用户下挂账号
 }

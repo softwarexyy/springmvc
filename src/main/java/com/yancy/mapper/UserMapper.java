@@ -19,4 +19,6 @@ public interface UserMapper {
 	public void deleteUser();
 
 	public void insertUser(User user);
+	
+	public String selectUidByName(String username);	//根据用户名查询ID
 }

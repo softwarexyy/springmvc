@@ -16,7 +16,7 @@
 		<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 	</div>
 		<p>银行卡号：
-			<select id="account" onchange="qryAccount()">
+			<select id="account" onchange="qryAccountInfo()">
 				<option value="0">--- 请选择账号---</option>
 			</select>
 		</p>
