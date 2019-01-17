@@ -11,7 +11,7 @@ import com.yancy.model.AccInfo;
  */
 public interface AccInfoMapper {
 
-	public AccInfo getAccInfoDetail(String userid, String account);	//获取账号详细信息
+	public AccInfo getAccInfoDetail(String account);	//获取账号详细信息
 	
 	public List<String> getSubAccount(String userid);	//获取用户下挂账号
 }

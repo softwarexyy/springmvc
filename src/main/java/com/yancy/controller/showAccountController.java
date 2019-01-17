@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yancy.model.AccInfo;
 import com.yancy.model.User;
 import com.yancy.service.AccInfoService;
 
@@ -54,5 +55,18 @@ public class showAccountController {
 		list = accInfoService.getSubAcc(request.getParameter("username"));
 		
 		return list;
+	}
+	
+	/**
+	 * 查询某账号详细信息
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/qrySubAccountInfo", method = RequestMethod.POST)
+	@ResponseBody
+	public AccInfo qrySubAccountInfo(HttpServletRequest request) {
+		AccInfo accInfo = new AccInfo();
+		accInfo = accInfoService.getAccInfoDetail(request.getParameter("account"));
+		return accInfo;
 	}
 }

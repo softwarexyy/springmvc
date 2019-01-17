@@ -21,17 +21,17 @@
 			</select>
 		</p>
 		<p>总财富：
-			<label id="sum">1,123,123.49</label> 元
+			<label id="sum"></label>
 		</p>
         <br />
 		<p>活期：
-			<label id="currency">3,123.49</label> 元
+			<label id="currencydeposit"></label>
 		</p>
 		<p>定期：
-			<label id="timedeposit">23.49</label> 元
+			<label id="timedeposit"></label>
 		</p>
 		<p>其他理财：
-			<label id="financialdeposit">23,123.49</label> 元
+			<label id="financialdeposit"></label>
 		</p>
 		<p><a href="/springmvc/homepage.jsp"><img src="/springmvc/images/returnToHomepage.png" width="180" height="35" /></a></p>
 </body>

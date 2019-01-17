@@ -27,10 +27,17 @@ public class AccInfoServiceImpl implements AccInfoService {
 	
 	@Override
 	public List<String> getSubAcc(String username) {
-		// 根据用户名查询ID
-		String userid = userMapper.selectUidByName(username);
+		String userid = userMapper.selectUidByName(username);	// 根据用户名查询ID
 		List<String> accList = new ArrayList<String>();
 		accList = accMapper.getSubAccount(userid);
 		return accList;
+	}
+
+	@Override
+	public AccInfo getAccInfoDetail(String account) {
+		AccInfo accInfo = new AccInfo();
+		accInfo = accMapper.getAccInfoDetail(account);
+		System.out.println("service层：" + accInfo.toString());
+		return accInfo;
 	}
 }

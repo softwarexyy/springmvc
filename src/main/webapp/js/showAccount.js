@@ -30,7 +30,29 @@ function qryAccountInfo() {
 	var acc = document.getElementById("account");
 	var accountVal = acc.options[acc.selectedIndex].value;	//暂时测试直接打印option的value值
 	if (accountVal != 0) {	// 选中项是实际的账号
-		alert("正在查询账号 " + accountVal + " 的详细信息...");
+		$("#sum").html("正在查询中...");
+		$("#currencydeposit").html("正在查询中...");
+		$("#timedeposit").html("正在查询中...");
+		$("#financialdeposit").html("正在查询中...");
+		
+		//发送ajax请求，查询账号详细信息
+		$.ajax({
+			type: "post",
+			url: "/springmvc/qrySubAccountInfo.do",
+			dataType: "json",
+			data: {	// 传输的数据，应取账号值
+				account: accountVal
+			},
+			async: false,	//此处采用同步，等待ajax返回才会给successflag赋值，否则successflag不一定拿到ajax赋值结果
+			success: function(data) {
+				$("#currencydeposit").html(data.currentDeposit);
+				$("#timedeposit").html(data.timeDeposit);
+				$("#financialdeposit").html(data.finacialDeposit);
+			},
+			error: function(data) {
+				alert("failed" + data);
+			}
+		});
 	}
 		
 }

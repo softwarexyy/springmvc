@@ -55,7 +55,7 @@ public class AccInfo {
 	}
 
 	public String toString() {
-		return "User: " + this.getAccount() + this.getCurrentDeposit() + this.getFinacialDeposit()
-				+ this.getTimeDeposit() + this.getUserid();
+		return "User: " + this.getAccount() + " " + this.getCurrentDeposit() + " " + this.getFinacialDeposit() + " "
+				+ this.getTimeDeposit() + " " + this.getUserid();
 	}
 }

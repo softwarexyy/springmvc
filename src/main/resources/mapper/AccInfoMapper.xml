@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.yancy.mapper.AccInfoMapper"> <!-- 对应UserMapper接口中对应的方法 -->
 	
 	<select id="getAccInfoDetail" parameterType="String" resultType="com.yancy.model.AccInfo">
-		select * from to_accinfo where userid=#{arg0} and account=#{arg1}
+		select * from to_accinfo where account=#{account}
 	</select>
 	
 	<select id="getSubAccount" parameterType="String" resultType="String">
