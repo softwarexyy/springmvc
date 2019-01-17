@@ -1,6 +1,7 @@
 package com.yancy.controller;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,5 +69,20 @@ public class showAccountController {
 		AccInfo accInfo = new AccInfo();
 		accInfo = accInfoService.getAccInfoDetail(request.getParameter("account"));
 		return accInfo;
+	}
+	
+	/**
+	 * 获取总财富值
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "/getSum", method = RequestMethod.POST)
+	@ResponseBody
+	public String getSum(HttpServletRequest request) {
+		AccInfo accInfo = new AccInfo();
+		accInfo = accInfoService.getAccInfoDetail(request.getParameter("account"));
+		double sum = accInfo.getCurrentDeposit() + accInfo.getFinacialDeposit() + accInfo.getTimeDeposit();
+		String sumFormat = new DecimalFormat(",###.##").format(sum);	//格式化金额
+		return sumFormat;
 	}
 }

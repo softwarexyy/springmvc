@@ -14,14 +14,9 @@ function showAccount(argUsername) {
 		},
 		async: false,	//此处采用同步，等待ajax返回才会给successflag赋值，否则successflag不一定拿到ajax赋值结果
 		success: function(data) {
-//			if(data.result == "success") {
-//			} else {
-//				alert("登录失败了...x_x");
-//			}
 			alert("success" + data.result);
 		},
 		error: function(data) {
-//			alert("error" + data.responseText);
 			alert("failed" + data);
 		}
 	});

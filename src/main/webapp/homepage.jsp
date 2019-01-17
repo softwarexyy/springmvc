@@ -25,7 +25,7 @@
 	    		<td><a href="/springmvc/showAccount.jsp"><img src="/springmvc/images/myAccount.png" width="231" height="37" /></a></td>
       		</tr>
 	  		<tr>
-	    		<td height="80"><a href="#"><img src="/springmvc/images/myBills.png" width="231" height="37" onclick="showBills()" /></a></td>
+	    		<td height="80"><a href="/springmvc/showBill.jsp"><img src="/springmvc/images/myBills.png" width="231" height="37" /></a></td>
 	    		<td><a href="#"><img src="/springmvc/images/transferMoney.png" width="231" height="37" onclick="transferMoney()" /></a></td>
       		</tr>
 		</table>
