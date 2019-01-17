@@ -48,6 +48,7 @@ function qryAccountInfo() {
 				$("#currencydeposit").html(data.currentDeposit);
 				$("#timedeposit").html(data.timeDeposit);
 				$("#financialdeposit").html(data.finacialDeposit);
+				$("#sum").html(data.currentDeposit + data.timeDeposit + data.finacialDeposit);	//计算总金额
 			},
 			error: function(data) {
 				alert("failed" + data);

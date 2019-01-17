@@ -37,7 +37,6 @@ public class AccInfoServiceImpl implements AccInfoService {
 	public AccInfo getAccInfoDetail(String account) {
 		AccInfo accInfo = new AccInfo();
 		accInfo = accMapper.getAccInfoDetail(account);
-		System.out.println("service层：" + accInfo.toString());
 		return accInfo;
 	}
 }
