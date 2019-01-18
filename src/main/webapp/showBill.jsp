@@ -86,5 +86,7 @@
     <td bgcolor="#DCFAD1">&nbsp;</td>
   </tr>
 </table>
+
+<p><a href="/springmvc/homepage.jsp"><img src="/springmvc/images/returnToHomepage.png" width="180" height="35" /></a></p>
 </body>
 </html>
