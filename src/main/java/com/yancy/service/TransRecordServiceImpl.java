@@ -17,9 +17,12 @@ public class TransRecordServiceImpl implements TransRecordService {
 	TransRecordMapper trMapper;
 	
 	@Override
-	public List<TransRecord> getTransRecordByTimeAndPage(String startTime, String endTime, int pageStart, int pageQty) {
+	public List<TransRecord> getTransRecordByTimeAndPage(String userid, String startTime, String endTime, int pageStart, int pageQty) {
 		List<TransRecord> transRecords = new ArrayList<TransRecord>();
-		transRecords = trMapper.getTransRecordByTimeAndPage(startTime, endTime, pageStart, pageQty);
+		transRecords = trMapper.getTransRecordByTimeAndPage(userid, startTime, endTime, pageStart, pageQty);
+		for (TransRecord tr: transRecords) {
+			System.out.println("service: " + tr.toString());
+		}
 		return transRecords;
 	}
 }

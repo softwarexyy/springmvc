@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yancy.mapper.TransRecordMapper"> <!-- 对应TransRecordMapper接口中对应的方法 -->
 	
-	<select id="getTransRecordByTimeAndPage" parameterType="String" resultType="com.yancy.model.TransRecord">
-		select * from to_bill where date between #{startTime} and #{endTime} order by date DESC limit #{pageStart}, #{pageQty}
+	<select id="getTransRecordByTimeAndPage" resultType="com.yancy.model.TransRecord">
+		select * from to_bill where userid=#{userid} and date between #{startTime} and #{endTime} order by date DESC limit #{pageStart}, #{pageQty}
 	</select>
 
 </mapper>

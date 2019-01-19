@@ -3,7 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/springmvc/js/jquery.min.js"></script>
+<script type="text/javascript" src="/springmvc/js/showBill.js"></script>
 <title>我的账单|小金猪银行</title>
 </head>
 <body>
@@ -12,78 +14,18 @@
 </p>
 <p>
 	起止日期：   
-  	<input id="meeting" type="date" value="2019-01-01"/> 
+  	<input id="startTime" type="date" value="2018-12-01"/> 
  	 至
-    <input id="meeting2" type="date" value="2019-01-01"/>
-    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="qryButton" value="查询"/>
+    <input id="endTime" type="date" value="2019-01-01"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="qryButton" value="查询" onclick="showBill('${sessionScope.userinfo.id}')"/>
 </p>
 
-<table width="800" border="0">
-  <tr>
-    <td bgcolor="#DCFAD1">日期</td>
-    <td bgcolor="#DCFAD1">金额</td>
-    <td bgcolor="#DCFAD1">交易类型</td>
-    <td bgcolor="#DCFAD1">备注</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-  </tr>
-  <tr>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
-    <td bgcolor="#DCFAD1">&nbsp;</td>
+<table id="billTable" width="800" border="0">
+  <tr bgcolor="#DCFAD1">
+    <td>日期</td>
+    <td>金额</td>
+    <td>交易类型</td>
+    <td>备注</td>
   </tr>
 </table>
 

@@ -19,5 +19,5 @@ public interface TransRecordService {
 	 * @param pageQty
 	 * @return
 	 */
-	List<TransRecord> getTransRecordByTimeAndPage(String startTime, String endTime, int pageStart, int pageQty);
+	List<TransRecord> getTransRecordByTimeAndPage(String userid, String startTime, String endTime, int pageStart, int pageQty);
 }

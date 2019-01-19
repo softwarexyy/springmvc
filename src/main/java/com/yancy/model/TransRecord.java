@@ -75,4 +75,7 @@ public class TransRecord {
 		this.transRemark = transRemark;
 	}
 
+	public String toString() {
+		return this.getTransFlowId() + this.getTransType() + this.getTransRemark() + this.getAmount();
+	}
 }
