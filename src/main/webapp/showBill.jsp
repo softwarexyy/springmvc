@@ -6,9 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/springmvc/js/jquery.min.js"></script>
 <script type="text/javascript" src="/springmvc/js/showBill.js"></script>
+<script type="text/javascript" src="/springmvc/js/searchList.js" ></script>
+<script type="text/javascript" src="/springmvc/js/pageScroll.js" ></script>
 <title>我的账单|小金猪银行</title>
 </head>
-<body>
+<body onload="initPageScroll()">
 <p>
 	<img src="/springmvc/images/titleLogo.png" width="1165" height="85" />
 </p>
@@ -28,6 +30,11 @@
     <td>备注</td>
   </tr>
 </table>
+<div>
+	<a href="javascript:void(0);" onclick="prev()">上一页</a>
+	<a href="javascript:void(0);" onclick="next()">下一页</a>
+	第<a id="pageCur"></a>页 共<a id="pageSum"></a>页
+</div>
 
 <p><a href="/springmvc/homepage.jsp"><img src="/springmvc/images/returnToHomepage.png" width="180" height="35" /></a></p>
 </body>
