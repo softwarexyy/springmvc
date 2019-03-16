@@ -16,10 +16,10 @@
 </p>
 <p>
 	起止日期：   
-  	<input id="startTime" type="date" value="2018-12-01"/> 
+  	<input id="startTime" type="date" value="2017-12-01"/> 
  	 至
-    <input id="endTime" type="date" value="2019-01-01"/>
-    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="qryButton" value="查询" onclick="showBill('${sessionScope.userinfo.id}')"/>
+    <input id="endTime" type="date" value="2019-02-01"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="qryButton" value="查询" onclick="showBillAndClearState('${sessionScope.userinfo.id}', 0, 10)"/>
 </p>
 
 <table id="billTable" width="800" border="0">
@@ -31,8 +31,8 @@
   </tr>
 </table>
 <div>
-	<a href="javascript:void(0);" onclick="prev()">上一页</a>
-	<a href="javascript:void(0);" onclick="next()">下一页</a>
+	<a href="javascript:void(0);" onclick="prev('${sessionScope.userinfo.id}')">上一页</a>
+	<a href="javascript:void(0);" onclick="next('${sessionScope.userinfo.id}')">下一页</a>
 	第<a id="pageCur"></a>页 共<a id="pageSum"></a>页
 </div>
 

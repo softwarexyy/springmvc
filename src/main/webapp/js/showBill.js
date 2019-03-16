@@ -1,3 +1,8 @@
+var sumQty = 12; //TODO:这只是假设的总条数，实际上需要通过查询数据库总条数得出
+var evryPageQty = 10; //每页条数
+var pageQty = Math.ceil(sumQty / evryPageQty); //页面上展示的总页数
+var page = 1;	//页面上展示的当前页号
+
 /**
  * 处理TimeStamp类型成为JS类型 
  * 用法： 
@@ -26,13 +31,15 @@ Date.prototype.format = function(format) {
         };
 
 /**
- * 查询账单列表
+ * 查询账单列表 并且清楚所有状态 回到初始状态
  * 
  * @returns
  */
-function showBill(userid) {
+function showBillAndClearState(userid, pageStart, pageQty) {
 	// 清空账单列表
 	$("#billTable tr:not(:first)").remove();
+	page = 1;	// 当前页号重置为1
+	$("#pageCur").text(page);
 	
 	var startTime = $("#startTime").val();
 	var endTime = $("#endTime").val();
@@ -44,8 +51,8 @@ function showBill(userid) {
 			userid: userid,
 			startTime : startTime,
 			endTime : endTime,
-			pageStart : '0', // 默认起始位置
-			pageQty : '10' // 默认一页数量
+			pageStart : pageStart, // 默认起始位置
+			pageQty : pageQty // 默认一页数量
 		},
 		async : false, // 此处采用同步，等待ajax返回才会给successflag赋值，否则successflag不一定拿到ajax赋值结果
 		success : function(data) {
@@ -62,4 +69,27 @@ function showBill(userid) {
 			alert("failed" + data);
 		}
 	});
+}
+
+function initPageScroll() {
+	$("#pageCur").text(page);
+	$("#pageSum").text(pageQty);
+}
+
+function prev(userid) {
+	if(page > 1) {
+		page--;
+		$("#pageCur").text(page);
+		// 往前翻页查询
+		searchList(userid, (page-1)*evryPageQty, evryPageQty);	//查询从第(page-1)*evryPageQty条记录开始的10条
+	}
+}
+
+function next(userid) {
+	if(page < pageQty) {
+		page++;
+		$("#pageCur").text(page);
+		// 往后翻页查询
+		searchList(userid, (page-1)*evryPageQty, evryPageQty);	//查询从第(page-1)*evryPageQty条记录开始的10条
+	}
 }
